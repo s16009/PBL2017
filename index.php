@@ -1,10 +1,10 @@
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href="css/main.css"> 
+    <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-<?php 
-echo 'hello world';
-?>
+<?php require_once 'header.php'; ?>
+
+
 </body>
 </html>
