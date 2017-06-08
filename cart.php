@@ -12,10 +12,58 @@
 <body>
 <?php require_once 'header.php'; ?>
 
-<main>
+<main class="clearfix">
     <div class="header">
         <img src="images/cart-header.png">
         <h1>カート</h1>
+    </div>
+
+    <div class="colum">
+        <img src="images/nae.png">
+        <div class="details">
+
+            <h2>トマト</h2>
+
+            <div class="dcol">
+                <h3>トレイ規格：<span>200穴</span></h3>
+                <h3 id="right">育苗方法：<span>自根</span></h3>
+            </div>
+
+            <div class="dcol">
+                <h3>台木：<span>なし</span></h3>
+                <h3 id="right">注文数：<span>500</span></h3>
+            </div>
+
+            <div class="dcol">
+                <h3>合計：<span>3000円</span></h3>
+                <input id="right-button" type="button" onclick="location.href='order_detail.php'" value="編集" />
+            </div>
+
+        </div>
+    </div>
+
+    <div class="colum">
+        <img src="images/nae.png">
+        <div class="details">
+
+            <h2>トマト</h2>
+
+            <div class="dcol">
+                <h3>トレイ規格：<span>200穴</span></h3>
+                <h3 id="right">育苗方法：<span>自根</span></h3>
+            </div>
+
+            <div class="dcol">
+                <h3>台木：<span>なし</span></h3>
+                <h3 id="right">注文数：<span>500</span></h3>
+            </div>
+
+            <div class="dcol">
+                <h3>合計：<span>3000円</span></h3>
+                <input id="right-button" type="button" onclick="location.href='order_detail.php'" value="編集" />
+            </div>
+
+        </div>
     </div>
 
     <div class="colum">
@@ -49,7 +97,7 @@
     <div class="cartbtn">
         <input id="button" type="button" onclick="location.href='order_detail.php'" value="注文する" />
     </div>
-
 </main>
+<?php require_once 'footer.php'; ?>
 </body>
 </html>
