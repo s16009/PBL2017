@@ -12,42 +12,58 @@ main img {
     float: left;
 }
 .colum {
-    width: 25%;
-    height: 100px;
+    width: 55%;
     float: right;
-    padding: 10px;
-    margin: 5px;
     position: relative;
+    margin-top: 45px;
 }
 .colum h2 {
-    margin: 0;
+    display: inline;
 }
-.colum input {
+.colum h3 {
+    margin: 0;
+    color: #95989A;
+    display: inline;
+    position: absolute;
+    right: 0;
+    bottom: 10%;
+}
+.colum hr {
+    margin: 0;
+    border: solid 0.01em #888888;
+}
+.price {
     width: 100%;
-    border: solid 1.4px #95989A;
-    border-radius: 3px;
-    height: 30px;
+    margin-top: 50px;
+}
+.price h2 {
+    margin-left: 6%;
+    font-size: 4em;
+}
+.price h3 {
+    margin-right: 6%;
+    font-size: 4em;
+}
+.buttons {
+    width: 100%;
+    margin: 80px 0;
+    text-align: center;
 }
 .colum #button {
     background-color: white;
     color: #20E233;
     width: 40%;
     display: inline;
-    font-size: 1.3em;
+    font-size: 2em;
     border: solid 2px #20E233;
     border-radius: 3px;
     text-align: center;
     padding: 20px 0;
-    float: right;
     margin: 10px 10px 0;
     line-height:0;
 }
 .colum #button:hover {
     box-shadow: #333333 0 1px 6px;
-}
-
-.buttons {
-    margin-top: 20px;
 }
 nav ul li#naeitiran {
     background: white;
