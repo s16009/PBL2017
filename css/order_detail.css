@@ -1,3 +1,10 @@
+@font-face {
+    font-family: "MgenRegular";
+    src: url('../fonts/mgenplus-1p-regular.ttf') format('truetype');
+}
+body {
+    font-family: "MgenRegular", sans-serif;
+}
 main {
     width: 80%;
     margin: 60px auto;
@@ -51,4 +58,16 @@ main img {
 }
 nav ul li#naeitiran {
     background: white;
+}
+.price {
+    width: 100%;
+    margin-top: 50px;
+}
+.price h2 {
+    margin-left: 6%;
+    font-size: 4em;
+}
+.price h3 {
+    margin-right: 6%;
+    font-size: 4em;
 }

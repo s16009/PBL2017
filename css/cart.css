@@ -1,3 +1,10 @@
+@font-face {
+    font-family: "MgenRegular";
+    src: url('../fonts/mgenplus-1p-regular.ttf') format('truetype');
+}
+body {
+    font-family: "MgenRegular";
+}
 main {
     width: 80%;
     margin: 40px auto;
@@ -66,4 +73,62 @@ nav ul li#cart {
 }
 .dcol #right-button:hover {
     box-shadow: #333333 0 1px 6px;
+}
+#button {
+    background-color: white;
+    color: #20E233;
+    width: 40%;
+    display: inline;
+    font-size: 2em;
+    border: solid 2px #20E233;
+    border-radius: 3px;
+    text-align: center;
+    padding: 20px 0;
+    margin: 0 auto;
+    line-height:0;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+}
+#button:hover {
+     box-shadow: #333333 0 1px 6px;
+}
+.cartbtn {
+    width: 100%;
+    height: auto;
+    position: relative;
+}
+.pricecolum {
+    width: 60%;
+    position: relative;
+    margin: 60px auto;
+}
+.pricecolum h2 {
+    display: inline;
+}
+.pricecolum h3 {
+    margin: 0;
+    color: black;
+    display: inline;
+    position: absolute;
+    right: 0;
+    bottom: 10%;
+}
+.pricecolum hr {
+    margin: 0;
+    border: solid 0.01em black;
+}
+.price h2 {
+    margin-left: 6%;
+    font-size: 4em;
+}
+.price h3 {
+    margin-right: 6%;
+    font-size: 4em;
+}
+.cartbtn {
+    margin-top: 50px;
 }

@@ -41,6 +41,15 @@
 
         </div>
     </div>
+
+    <div class="pricecolum price">
+        <h2>合計金額</h2><h3>3000円</h3>
+        <hr>
+    </div>
+    <div class="cartbtn">
+        <input id="button" type="button" onclick="location.href='order_detail.php'" value="注文する" />
+    </div>
+
 </main>
 </body>
 </html>

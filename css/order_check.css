@@ -1,3 +1,10 @@
+@font-face {
+    font-family: "MgenRegular";
+    src: url('../fonts/mgenplus-1p-regular.ttf') format('truetype');
+}
+body {
+    font-family: "MgenRegular";
+}
 main {
     width: 80%;
     margin: 60px auto;
