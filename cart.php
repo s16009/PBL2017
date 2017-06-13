@@ -18,77 +18,44 @@
         <h1>カート</h1>
     </div>
 
-    <div class="colum">
-        <img src="images/nae.png">
-        <div class="details">
+    <?php $order = array(
+        0 => array(
+            "product_name" => "トマト",
+            "order_num" => 300
+        ),
+        1 => array(
+            "product_name" => "レタス",
+            "order_num" => 200
+        ),
+        2 => array(
+            "product_name" => "きゅうり",
+            "order_num" => 4000
+        )
+    ) ?>
+    <?php for($i = 0; $i < count($order); $i++) { ?>
+        <div class="colum">
+            <img src="images/nae.png">
+            <div class="details">
 
-            <h2>トマト</h2>
+                <h2><?php echo $order[$i]['product_name']; ?></h2>
+                <div class="dcol">
+                    <h3>トレイ規格：<span>200穴</span></h3>
+                    <h3 id="right">育苗方法：<span>自根</span></h3>
+                </div>
 
-            <div class="dcol">
-                <h3>トレイ規格：<span>200穴</span></h3>
-                <h3 id="right">育苗方法：<span>自根</span></h3>
+                <div class="dcol">
+                    <h3>台木：<span>なし</span></h3>
+                    <h3 id="right">注文数：<span><?php echo $order[$i]['order_num']; ?></span></h3>
+                </div>
+
+                <div class="dcol">
+                    <h3>合計：<span>3000円</span></h3>
+                    <input id="right-button" type="button" onclick="location.href='order_detail.php'" value="編集" />
+                </div>
             </div>
-
-            <div class="dcol">
-                <h3>台木：<span>なし</span></h3>
-                <h3 id="right">注文数：<span>500</span></h3>
-            </div>
-
-            <div class="dcol">
-                <h3>合計：<span>3000円</span></h3>
-                <input id="right-button" type="button" onclick="location.href='order_detail.php'" value="編集" />
-            </div>
-
         </div>
-    </div>
 
-    <div class="colum">
-        <img src="images/nae.png">
-        <div class="details">
-
-            <h2>トマト</h2>
-
-            <div class="dcol">
-                <h3>トレイ規格：<span>200穴</span></h3>
-                <h3 id="right">育苗方法：<span>自根</span></h3>
-            </div>
-
-            <div class="dcol">
-                <h3>台木：<span>なし</span></h3>
-                <h3 id="right">注文数：<span>500</span></h3>
-            </div>
-
-            <div class="dcol">
-                <h3>合計：<span>3000円</span></h3>
-                <input id="right-button" type="button" onclick="location.href='order_detail.php'" value="編集" />
-            </div>
-
-        </div>
-    </div>
-
-    <div class="colum">
-        <img src="images/nae.png">
-        <div class="details">
-
-            <h2>トマト</h2>
-
-            <div class="dcol">
-                <h3>トレイ規格：<span>200穴</span></h3>
-                <h3 id="right">育苗方法：<span>自根</span></h3>
-            </div>
-
-            <div class="dcol">
-                <h3>台木：<span>なし</span></h3>
-                <h3 id="right">注文数：<span>500</span></h3>
-            </div>
-
-            <div class="dcol">
-                <h3>合計：<span>3000円</span></h3>
-                <input id="right-button" type="button" onclick="location.href='order_detail.php'" value="編集" />
-            </div>
-
-        </div>
-    </div>
+    <?php } ?>
 
     <div class="pricecolum price">
         <h2>合計金額</h2><h3>3000円</h3>
