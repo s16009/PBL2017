@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<link rel="stylesheet" href="home.css" type="text/css">
+<link rel="stylesheet" href="css/home.css" type="text/css">
 </head>
 <meta charset="UTF-8">
 	<title>PBL</title>
