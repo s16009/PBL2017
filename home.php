@@ -36,7 +36,7 @@
             <div class="dcol">
                 <p>
                     注文数：<span>500</span>
-                    合計：<span>3000円</span>
+                    合計：<span>30000円</span>
                 </p>
             </div>
 

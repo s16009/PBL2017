@@ -5,6 +5,9 @@
 body {
     font-family: "MgenRegular";
 }
+#home {
+    background-color: white;
+}
 main {
     width: 70%;
     margin: 40px auto;
@@ -17,7 +20,7 @@ main {
     font-size: 1.5em;
 }
 .header img {
-    width: 40%;
+    width: 50%;
     height: auto;
 }
 .details h1 {

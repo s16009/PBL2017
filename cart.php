@@ -51,7 +51,7 @@
                 </div>
 
                 <div class="dcol">
-                    <h3>合計：<span>3000円</span></h3>
+                    <h3>合計：<span>30000円</span></h3>
                     <input id="right-button" type="button" onclick="location.href='order_detail.php'" value="編集" />
                 </div>
 
