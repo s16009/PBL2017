@@ -14,10 +14,10 @@
 
 <main>
     <h1>レタス</h1>
-    <img src="images/nae.png">
+    <img src="images/nae2.png">
     <form method="post" action="#">
 
-        <div class="colum">
+        <div class="colum" style="margin-top: 0;">
             <h2>トレイ規格</h2><h3>200穴</h3>
             <hr>
         </div>

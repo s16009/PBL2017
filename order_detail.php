@@ -14,7 +14,7 @@
 
 <main>
     <h1>レタス</h1>
-    <img src="images/nae.png">
+    <img src="images/tomato.png">
     <form method="post" action="order_check.php">
         <div class="colum form-group">
             <h2>育苗方法</h2>

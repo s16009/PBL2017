@@ -31,10 +31,12 @@
             "product_name" => "きゅうり",
             "order_num" => 4000
         )
-    ) ?>
+    ); $i = 0;?>
     <?php for($i = 0; $i < count($order); $i++) { ?>
-        <div class="colum">
-            <img src="images/nae.png">
+        <div class="colum clearfix">
+
+            <img src="images/nae2.png">
+
             <div class="details">
 
                 <h2><?php echo $order[$i]['product_name']; ?></h2>
@@ -52,6 +54,7 @@
                     <h3>合計：<span>3000円</span></h3>
                     <input id="right-button" type="button" onclick="location.href='order_detail.php'" value="編集" />
                 </div>
+
             </div>
         </div>
 

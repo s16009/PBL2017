@@ -1,11 +1,15 @@
-
+@font-face {
+    font-family: "MgenRegular";
+    src: url('../fonts/mgenplus-1p-regular.ttf') format('truetype');
+}
 body {
-  margin: 0;
+    font-family: "MgenRegular";
+    margin: 0;
 }
 header {
   margin: 0;
 	padding:10px;
-  background: #00FF00;
+  background: #20E233;
   color: #FFF;
 
 
@@ -13,7 +17,7 @@ header {
 h2{
     font-weight: 500;
     font-size: xx-large;
-    color: #00FF00;
+    color: #20E233;
     margin-left: 100px;
     margin-top: 60px;
     line-height: 35pt;
@@ -80,8 +84,8 @@ input[type=password], select {
     display: inline-block;
     padding: 0.3em 1em;
     text-decoration: none;
-    color: #00FF00;
-    border: solid 2px #00FF00;
+    color: #20E233;
+    border: solid 2px #20E233;
     border-radius: 3px;
     transition: .4s;
     background-color: white;
@@ -90,7 +94,7 @@ input[type=password], select {
 }
 
 form input[type="submit"]:hover {
-    background: #32cd32;
+    background: #20E233;
     color: white;
 }
 

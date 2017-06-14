@@ -33,12 +33,26 @@ main {
     width: 31.3%;
     margin: 1% 1%;
     float: left;
+    border: solid 1px #ccc;
+    border-radius: 5px;
+    padding: 5px;
+    position: relative;
+}
+.column:hover {
+    box-shadow: #333333 0 1px 6px;
 }
 .column img {
     width: 100%;
     height: auto;
 }
-.column h1 a {
+.column h1 {
+    margin: 0;
+    padding: 0;
+}
+.column a {
+    position: absolute;
+    width: 100%;
+    height: 100%;
     color: black;
 }
 .clearfix {
@@ -52,8 +66,4 @@ main {
 }
 .clearfix:after {
     clear: both;
-}
-.column img:hover {
-    border-radius: 6px;
-    box-shadow: #333333 0 1px 6px;
 }

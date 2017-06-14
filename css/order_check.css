@@ -71,6 +71,8 @@ main img {
 }
 .colum #button:hover {
     box-shadow: #333333 0 1px 6px;
+    color: white;
+    background-color: #20E233;
 }
 nav ul li#naeitiran {
     background: white;

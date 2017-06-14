@@ -21,23 +21,27 @@
     <div class="product-list clearfix">
 
         <div class="column">
-            <h1><a href="#">とまと</a></h1>
-            <a href="#"><img src="images/nae.png"></a>
+            <a href="order_detail.php"></a>
+            <h1>とまと</h1>
+            <img src="images/tomato.png">
         </div>
 
         <div class="column">
-            <h1><a href="#">とまと</a></h1>
-            <a href="#"><img src="images/nae.png"></a>
+            <a href="order_detail.php"></a>
+            <h1>とまと</h1>
+            <img src="images/tomato.png">
         </div>
 
         <div class="column">
-            <h1><a href="#">とまと</a></h1>
-            <a href="#"><img src="images/nae.png"></a>
+            <a href="order_detail.php"></a>
+            <h1>とまと</h1>
+            <img src="images/tomato.png">
         </div>
 
         <div class="column">
-            <h1><a href="#">とまと</a></h1>
-            <a href="#"><img src="images/nae.png"></a>
+            <a href="#"></a>
+            <h1>とまと</h1>
+            <img src="images/tomato.png">
         </div>
 
     </div>
