@@ -18,7 +18,10 @@
         <h1>カート</h1>
     </div>
 
-    <?php $order = array(
+    <?php
+    $_SESSION['userid'] = $row['user_id'];
+
+    $order = array(
         0 => array(
             "product_name" => "トマト",
             "order_num" => 300
