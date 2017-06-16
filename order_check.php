@@ -11,34 +11,35 @@
 </head>
 <body>
 <?php require_once 'header.php'; ?>
-
+<?php $time = strtotime($_POST['receiving_date']);
+$date = date('Y-m-d', $time); ?>
 <main>
     <h1>レタス</h1>
     <img src="images/nae2.png">
     <form method="post" action="#">
 
         <div class="colum" style="margin-top: 0;">
-            <h2>トレイ規格</h2><h3>200穴</h3>
+            <h2>トレイ規格</h2><h3><?php echo $_POST['trayName']; ?></h3>
             <hr>
         </div>
 
         <div class="colum">
-            <h2>苗数量</h2><h3>500</h3>
+            <h2>苗数量</h2><h3><?php echo $_POST['product_number']; ?></h3>
             <hr>
         </div>
 
         <div class="colum">
-            <h2>台木</h2><h3>なし</h3>
+            <h2>台木</h2><h3><?php echo $_POST['selectGraft']; ?></h3>
             <hr>
         </div>
 
         <div class="colum">
-            <h2>育苗方法</h2><h3>自根</h3>
+            <h2>育苗方法</h2><h3><?php echo $_POST['howToGrow']; ?></h3>
             <hr>
         </div>
 
         <div class="colum">
-            <h2>引き取り日</h2><h3>2017年06月23日</h3>
+            <h2>引き取り日</h2><h3><?php echo $date;?></h3>
             <hr>
         </div>
 
