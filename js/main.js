@@ -1,5 +1,9 @@
 window.onload = function () {
     var productName = document.getElementById("productName").innerHTML;
+    var date = document.getElementById("date");
+    var p_num = document.getElementById("p_num");
+    date.style.border = 'solid 1px #ccc';
+    p_num.style.border = 'solid 1px #ccc';
     // 品目ごとのセレクトカラムの初期表示
     switch (productName) {
         case "レタス":
@@ -157,6 +161,7 @@ var checkInput = function () {
     var trayName = document.orderDetail.trayName.selectedIndex;
     var howToGrow = document.orderDetail.howToGrow.selectedIndex;
     var selectGraft = document.orderDetail.selectGraft.selectedIndex;
+    var graftForm = document.getElementById("graftForm");
     var button = document.getElementById("button");
     var p_num = document.getElementById("p_num");
     var date = document.getElementById("date");
@@ -174,6 +179,28 @@ var checkInput = function () {
     } else {
         hover = true;
         submitMouseout();
+    }
+
+    if (trayName === 3 || trayName === 4) {
+        if (selectGraft === 1) {
+            hover = false;
+            button.style.color = '#ccc';
+            button.style.borderColor = '#ccc';
+            button.style.backgroundColor = 'white';
+            button.style.boxShadow = 'none';
+            button.disabled = true;
+            graftForm.style.border = 'solid 1px #ccc';
+            graftForm.style.color = '#ff9090';
+            graftForm.style.boxShadow = '0px 0px 6px 3px #ff9090';
+        } else {
+            graftForm.style.border = 'solid 1px #ccc';
+            graftForm.style.color = 'black';
+            graftForm.style.boxShadow = 'none';
+        }
+    } else {
+        graftForm.style.border = 'solid 1px #ccc';
+        graftForm.style.color = 'black';
+        graftForm.style.boxShadow = 'none';
     }
 
 };
@@ -210,6 +237,7 @@ var setDateForm = function (dayToRaise) {
     date.value = [now.getFullYear(), ( "0"+(now.getMonth() + 1) ).slice(-2),
         ( "0"+(now.getDate()) ).slice(-2)].join('-');
     date.setAttribute("min", date.value);
+    console.log(date.value);
     checkInput();
 };
 

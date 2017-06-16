@@ -55,7 +55,7 @@ switch ($productName) {
         </div>
         <div class="colum">
             <h2>引き取り日</h2>
-            <input type="date" id="date" onchange="checkInput()">
+            <input type="date" id="date" name="receiving_date" onchange="checkInput()">
         </div>
         <div class="colum">
             <h2>苗数量</h2>
@@ -67,7 +67,7 @@ switch ($productName) {
         </div>
         <div class="colum">
             <h2>台木</h2>
-            <select class="form-control" id="sel1" name="selectGraft" onchange="<?php echo "checkproduct.".$checkProduct; ?>">
+            <select class="form-control" id="graftForm" name="selectGraft" onchange="<?php echo "checkproduct.".$checkProduct; ?>">
                 <option value='' disabled selected style='display:none;'>台木を選択</option>
                 <?php get_rootstock(); ?>
             </select>
