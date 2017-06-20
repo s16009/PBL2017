@@ -1,3 +1,30 @@
+<?php
+session_start();
+$db['host'] = "localhost";  // DBサーバのURL
+$db['user'] = "root";  // ユーザー名
+$db['pass'] = "yc20140219";  // ユーザー名のパスワード
+$db['dbname'] = "PBL2017";  // データベース名
+$dsn = sprintf('mysql: host=%s; dbname=%s; charset=utf8', $db['host'], $db['dbname']);
+try {
+    $pdo = new PDO($dsn, $db['user'], $db['pass'], array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+    $stmt = $pdo->prepare('SELECT * FROM product');
+    $stmt->execute();
+    if ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+
+    }
+
+
+
+} catch (PDOException $e) {
+    $errorMessage = 'データベースエラー';
+    //$errorMessage = $sql;
+    // $e->getMessage() でエラー内容を参照可能（デバック時のみ表示）
+    echo $e->getMessage();
+}
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
