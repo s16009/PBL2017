@@ -3,7 +3,7 @@
 session_start();
 $db['host'] = "localhost";  // DBサーバのURL
 $db['user'] = "root";  // ユーザー名
-$db['pass'] = "";  // ユーザー名のパスワード
+$db['pass'] = "yc20140219";  // ユーザー名のパスワード
 $db['dbname'] = "PBL2017";  // データベース名
 // エラーメッセージの初期化
 $errorMessage = "";
@@ -22,11 +22,12 @@ if (isset($_POST["login"])) {
         // 3. エラー処理
         try {
             $pdo = new PDO($dsn, $db['user'], $db['pass'], array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION));
-            $stmt = $pdo->prepare('SELECT mail_address, password FROM user ');
+            $stmt = $pdo->prepare('SELECT user_id, mail_address, password FROM user ');
             $stmt->execute();
             if ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                 if ($_POST['pass']==$row['password'] && $_POST['mail']==$row['mail_address']) {
                     session_regenerate_id(true);
+                    $_SESSION['userid'] = $row['user_id'];
 
                     header("Location: home.php");  // メイン画面へ遷移
                     exit();  // 処理終了
