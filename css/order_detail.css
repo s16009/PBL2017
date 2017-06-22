@@ -45,8 +45,6 @@ main img {
     border-radius: 3px;
     text-align: center;
     padding: 20px 0;
-    float: right;
-    margin: 10px 10px 0;
     line-height:0;
 }
 .colum #button:hover {
@@ -55,20 +53,22 @@ main img {
     background-color: #20E233;}
 
 .buttons {
+    width: 50%;
     margin-top: 20px;
+}
+.buttons-inside {
+    width: 90%;
+    margin: auto;
 }
 nav ul li#naeitiran {
     background: white;
 }
-.price {
-    width: 100%;
-    margin-top: 50px;
-}
-.price h2 {
-    margin-left: 6%;
-    font-size: 4em;
-}
-.price h3 {
-    margin-right: 6%;
-    font-size: 4em;
+
+input[type=text]#price {
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-radius: 0;
+    text-align: right;
+    font-size: 2em;
 }

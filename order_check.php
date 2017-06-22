@@ -1,3 +1,6 @@
+<?php
+if (!isset($_SESSION)) session_start();
+?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -11,40 +14,49 @@
 </head>
 <body>
 <?php require_once 'header.php'; ?>
-<?php $time = strtotime($_POST['receiving_date']);
-$date = date('Y-m-d', $time); ?>
+<?php
+$time = strtotime($_POST['receiving_date']);
+$date = date('Y-m-d', $time);
+?>
 <main>
-    <h1>レタス</h1>
-    <img src="images/nae2.png">
-    <form method="post" action="#">
+    <h1 id="p_name"><?php echo $_GET['name']; ?></h1>
+    <img src="<?php echo $_GET['image']; ?>">
+    <form method="post" action="functions/addCart.php?pname=<?php
+    echo $_GET['name'];?>&num=<?php
+    echo $_POST['product_number'];?>&tray=<?php
+    echo $_POST['trayName'];?>&root=<?php
+    echo $_POST['selectGraft'];?>&price=<?php
+    echo $_POST['hidden_price'];?>&image=<?php
+    echo $_GET['image'];?>&receiving-date=<?php
+    echo $date?>">
 
         <div class="colum" style="margin-top: 0;">
-            <h2>トレイ規格</h2><h3><?php echo $_POST['trayName']; ?></h3>
+            <label>トレイ規格</label><h3 id="tray"><?php echo $_POST['trayName']; ?></h3>
             <hr>
         </div>
 
         <div class="colum">
-            <h2>苗数量</h2><h3><?php echo $_POST['product_number']; ?></h3>
+            <label>苗数量</label><h3 id="num"><?php echo $_POST['product_number']; ?></h3>
             <hr>
         </div>
 
         <div class="colum">
-            <h2>台木</h2><h3><?php echo $_POST['selectGraft']; ?></h3>
+            <label>台木</label><h3 id="graft"><?php echo $_POST['selectGraft']; ?></h3>
             <hr>
         </div>
 
         <div class="colum">
-            <h2>育苗方法</h2><h3><?php echo $_POST['howToGrow']; ?></h3>
+            <label>育苗方法</label><h3><?php echo $_POST['howToGrow']; ?></h3>
             <hr>
         </div>
 
         <div class="colum">
-            <h2>引き取り日</h2><h3><?php echo $date;?></h3>
+            <label>引き取り日</label><h3><?php echo $date;?></h3>
             <hr>
         </div>
 
         <div class="colum price">
-            <h2>合計金額</h2><h3>3000円</h3>
+            <label>合計金額</label><h3 id="price"><?php echo $_POST['price']; ?></h3>
             <hr>
         </div>
 

@@ -1,10 +1,7 @@
 <?php
 // セッション開始
-session_start();
-$db['host'] = "localhost";  // DBサーバのURL
-$db['user'] = "root";  // ユーザー名
-$db['pass'] = "yc20140219";  // ユーザー名のパスワード
-$db['dbname'] = "PBL2017";  // データベース名
+if (!isset($_SESSION)) session_start();
+require_once 'functions/db_connect.php';
 // エラーメッセージの初期化
 $errorMessage = "";
 // ログインボタンが押された場合
@@ -16,12 +13,9 @@ if (isset($_POST["login"])) {
         $errorMessage = 'パスワードが未入力です。';
     }
     if (!empty($_POST["mail"]) && !empty($_POST["pass"])) {
-        // 入力したユーザIDを格納
-        // 2. ユーザIDとパスワードが入力されていたら認証する
-        $dsn = sprintf('mysql: host=%s; dbname=%s; charset=utf8', $db['host'], $db['dbname']);
-        // 3. エラー処理
         try {
-            $pdo = new PDO($dsn, $db['user'], $db['pass'], array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION));
+            $pdo = new PDO(DSN, DB_USER, DB_PWD);
+            $pdo->query('SET NAMES UTF8');
             $stmt = $pdo->prepare('SELECT user_id, mail_address, password FROM user ');
             $stmt->execute();
             if ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
@@ -36,15 +30,11 @@ if (isset($_POST["login"])) {
                     $errorMessage = 'ユーザーIDあるいはパスワードに誤りがあります。';
                 }
             } else {
-                // 4. 認証成功なら、セッションIDを新規に発行する
                 // 該当データなし
                 $errorMessage = 'ユーザーIDあるいはパスワードに誤りがあります。';
             }
         } catch (PDOException $e) {
             $errorMessage = 'データベースエラー';
-            //$errorMessage = $sql;
-            // $e->getMessage() でエラー内容を参照可能（デバック時のみ表示）
-            // echo $e->getMessage();
         }
     }
 }
@@ -80,12 +70,12 @@ if (isset($_POST["login"])) {
         </p>
 
         <input type="submit" name="login" value="ログイン">
+        <?php echo "<span style=\"color:red;\">".$errorMessage."</span>"; ?>
     </form>
 
-    <?php echo $errorMessage; ?>
 
-    <img src="images/wood.gif" width="500" style="position:absolute;bottom:0px;right:0px;">
-    <img src="images/wood2.gif" width="350" style="position: absolute;bottom:0px;left:0px;">
+    <img src="images/wood.gif" width="500" style="position:absolute;bottom:0px;right:0px; z-index: -1;">
+    <img src="images/wood2.gif" width="350" style="position: absolute;bottom:0px;left:0px; z-index: -1;">
 </div>
 
 </body>

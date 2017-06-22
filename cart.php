@@ -1,3 +1,6 @@
+<?php
+if (!isset($_SESSION)) session_start();
+?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -11,65 +14,58 @@
 </head>
 <body>
 <?php require_once 'header.php'; ?>
+<?php require_once 'functions/db_connect.php'; ?>
+<?php require_once 'functions/php_functions.php'; ?>
 
 <main class="clearfix">
     <div class="header">
         <img src="images/cart-header.png">
         <h1>カート</h1>
     </div>
-
     <?php
-    $_SESSION['userid'] = $row['user_id'];
-
-    $order = array(
-        0 => array(
-            "product_name" => "トマト",
-            "order_num" => 300
-        ),
-        1 => array(
-            "product_name" => "レタス",
-            "order_num" => 200
-        ),
-        2 => array(
-            "product_name" => "きゅうり",
-            "order_num" => 4000
-        )
-    ); $i = 0;?>
-    <?php for($i = 0; $i < count($order); $i++) { ?>
+    $cartData = getCartData($_SESSION['userid']);
+    $totalPrice = 0;
+    if (getCartNumber($_SESSION['userid'] > 0)) {?>
+    <?php foreach($cartData as $keys => $list) { ?>
         <div class="colum clearfix">
 
-            <img src="images/nae2.png">
+            <img src="<?php echo $list['product_image']; ?>">
 
             <div class="details">
 
-                <h2><?php echo $order[$i]['product_name']; ?></h2>
+                <h2><?php echo getProductName($list['product_id']); ?></h2>
                 <div class="dcol">
-                    <h3>トレイ規格：<span>200穴</span></h3>
-                    <h3 id="right">育苗方法：<span>自根</span></h3>
+                    <h3>トレイ規格：<span id="tray"><?php echo getTrayName($list['tray_id']); ?></span></h3>
+                    <h3 class="right">育苗方法：<span><?php if(getTrayName($list['tray_id']) == "200穴" || getTrayName($list['tray_id']) === "128穴"){echo "自根";}else{echo "接木";} ?></span></h3>
                 </div>
 
                 <div class="dcol">
-                    <h3>台木：<span>なし</span></h3>
-                    <h3 id="right">注文数：<span><?php echo $order[$i]['order_num']; ?></span></h3>
+                    <h3>台木：<span><?php echo getRootstockName($list['rootstock_id']); ?></span></h3>
+                    <h3 class="right">注文数：<span><?php echo number_format($list['product_num']); ?></span></h3>
                 </div>
 
                 <div class="dcol">
-                    <h3>合計：<span>30000円</span></h3>
+                    <h3>合計：<span><?php echo "¥".number_format($list['total_price']); ?></span></h3>
                     <input id="right-button" type="button" onclick="location.href='order_detail.php'" value="編集" />
                 </div>
 
             </div>
         </div>
 
+        <?php $totalPrice += $list['total_price']; ?>
+
     <?php } ?>
 
     <div class="pricecolum price">
-        <h2>合計金額</h2><h3>3000円</h3>
+        <h2>合計金額</h2><h3><?php echo "¥".number_format($totalPrice); ?></h3>
         <hr>
     </div>
     <div class="cartbtn">
-        <input id="button" type="button" onclick="location.href='order_detail.php'" value="注文する" />
+        <input id="button" type="button" onclick="location.href='functions/addOrder.php'" value="注文する" />
     </div>
+    <?php } else { ?>
+    <p style="color: red; text-align: center; font-size: 1.5em; margin-top: 30px;">カートには何も入っていません。</p>
+    <?php } ?>
 </main>
 <?php require_once 'footer.php'; ?>
 </body>

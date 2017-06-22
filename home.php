@@ -1,53 +1,38 @@
 <?php
-session_start();
-$db['host'] = "localhost";  // DBサーバのURL
-$db['user'] = "root";  // ユーザー名
-$db['pass'] = "yc20140219";  // ユーザー名のパスワード
-$db['dbname'] = "PBL2017";  // データベース名
-$dsn = sprintf('mysql: host=%s; dbname=%s; charset=utf8', $db['host'], $db['dbname']);
+if (!isset($_SESSION)) session_start();
+require_once 'functions/db_connect.php';
 try {
-    $pdo = new PDO($dsn, $db['user'], $db['pass'], array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
-    $stmt = $pdo->prepare('SELECT product.product_name, o.product_num, tray.tray_name, rootstock.rootstock_name
-                                    FROM `order` o
-                                    JOIN product ON o.product_id = product.product_id
-                                    JOIN tray ON o.tray_id = tray.tray_id
-                                    JOIN rootstock on o.rootstock_id = rootstock.rootstock_id
-                                    WHERE o.user_id = 1;');
+    $pdo = new PDO(DSN, DB_USER, DB_PWD);
+    $pdo->query('SET NAMES UTF8');
+    $stmt = $pdo->prepare(
+            'SELECT product.product_name, product.product_image, o.product_num, tray.tray_name, rootstock.rootstock_name
+                        FROM `order` o
+                        JOIN product ON o.product_id = product.product_id
+                        JOIN tray ON o.tray_id = tray.tray_id
+                        JOIN rootstock on o.rootstock_id = rootstock.rootstock_id
+                        WHERE o.user_id = "'.$_SESSION['userid'].'";');
     $stmt->execute();
     while ($data = $stmt->fetch(PDO::FETCH_ASSOC)) {
 
         $orderData[] = array(
-            'product_name'      => $data['product_name']
-        ,'tray_name'        => $data['tray_name']
-        ,'rootstock_name'   => $data['rootstock_name']
-        ,'product_num'      => $data['product_num']
+                'product_name'      => $data['product_name']
+                ,'tray_name'        => $data['tray_name']
+                ,'rootstock_name'   => $data['rootstock_name']
+                ,'product_num'   => $data['product_num']
+                ,'product_image'      => $data['product_image']
         );
     }
-
-
-
 } catch (PDOException $e) {
-    $errorMessage = 'データベースエラー';
-    //$errorMessage = $sql;
-    // $e->getMessage() でエラー内容を参照可能（デバック時のみ表示）
      echo $e->getMessage();
 }
-
-
-
-
-
-
 ?>
-
-
 <!DOCTYPE html>
-
 <html lang="ja">
 <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/header.css" type="text/css">
     <link rel="stylesheet" href="css/home.css" type="text/css">
+
 </head>
 <meta charset="UTF-8">
 <title>PBL</title>
@@ -59,33 +44,36 @@ try {
     <div class="header">
         <img src="images/tyumonnae.png">
     </div>
+    <?php if (getOrderNumber($_SESSION['userid'] > 0)) { ?>
     <?php foreach ($orderData as $key => $list) { ?>
-    <div class="colum">
-        <img src="images/tomato.png">
+    <div class="colum clearfix">
+        <img src="<?php echo $list['product_image']; ?>">
         <div class="details">
 
-            <h1><?php echo ($list["product_name"])?></h1><span id="hikitoribi">引き取り日まであと6日</span>
+            <h1><?php echo $list["product_name"]?></h1><span id="hikitoribi">引き取り日まであと6日</span>
 
 
             <div class="dcol">
                 <p>
-                    トレイ規格：<span><?php echo ($list["tray_name"])?></span>
-                    育苗方法：<span><?php echo ($list["rootstock_name"])?></span>
-                    台木：<span>なし</span>
+                    トレイ規格：<span><?php echo $list["tray_name"]?></span>
+                    育苗方法：<span><?php if($list["rootstock_name"] == "なし") { echo "自根";} else { echo "接木";}?></span>
                 </p>
             </div>
 
             <div class="dcol">
                 <p>
-                    注文数：<span><?php echo ($list["product_num"])?></span>
+                    台木：<span><?php echo $list["rootstock_name"]?></span>
+                    注文数：<span><?php echo $list["product_num"]?></span>
                     合計：<span>30000円</span>
                 </p>
             </div>
 
         </div>
     </div>
-<?php } ?>
-
+    <?php } ?>
+    <?php } else { ?>
+        <p style="color: red; text-align: center; font-size: 1.5em; margin-top: 30px;">何も注文されていません。</p>
+    <?php } ?>
 </main>
 </body>
 </html>

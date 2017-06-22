@@ -42,8 +42,8 @@ main {
     box-shadow: #333333 0 1px 6px;
 }
 .column img {
-    width: 100%;
-    height: auto;
+    width: auto;
+    height: 200px;
 }
 .column h1 {
     margin: 0;
