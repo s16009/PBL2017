@@ -17,7 +17,7 @@ window.onload = function () {
             document.orderDetail.trayName.options[4].disabled = true;
             document.orderDetail.selectGraft.options[1].selected = true;
             break;
-        case "トマト":
+        case "とまと":
             document.orderDetail.selectGraft.options[2].disabled = true;
             break;
         case "きゅうり":
@@ -36,35 +36,6 @@ var CheckProduct = function() {
 
     CheckProduct.prototype.checkTomato = function () {
 
-        switch (document.orderDetail.trayName.selectedIndex) {
-            case 1:
-            case 2:
-                // 台木選択の制御
-                document.orderDetail.selectGraft.options[1].disabled = false;
-                document.orderDetail.selectGraft.options[2].disabled = true;
-                document.orderDetail.selectGraft.options[3].disabled = true;
-                document.orderDetail.selectGraft.options[4].disabled = true;
-                document.orderDetail.selectGraft.options[5].disabled = true;
-                // 育苗方法の制御
-                document.orderDetail.howToGrow.options[1].disabled = false;
-                document.orderDetail.howToGrow.options[1].selected = true;
-                document.orderDetail.howToGrow.options[2].disabled = true;
-                break;
-            case 3:
-            case 4:
-                // 台木選択の制御
-                document.orderDetail.selectGraft.options[1].disabled = true;
-                document.orderDetail.selectGraft.options[2].disabled = true;
-                document.orderDetail.selectGraft.options[3].disabled = true;
-                document.orderDetail.selectGraft.options[4].disabled = false;
-                document.orderDetail.selectGraft.options[5].disabled = false;
-                // 育苗方法の制御
-                document.orderDetail.howToGrow.options[1].disabled = true;
-                document.orderDetail.howToGrow.options[2].disabled = false;
-                document.orderDetail.howToGrow.options[2].selected = true;
-                break;
-        }
-
         switch (document.orderDetail.howToGrow.selectedIndex) {
             case 1:
                 // 台木選択の制御
@@ -82,20 +53,14 @@ var CheckProduct = function() {
                 document.orderDetail.selectGraft.options[3].disabled = true;
                 document.orderDetail.selectGraft.options[4].disabled = false;
                 document.orderDetail.selectGraft.options[5].disabled = false;
-                // document.orderDetail.selectGraft.options[4].selected = true;
                 break;
         }
 
-        checkInput();
-        DaysIncrease();
-        DayController();
-    };
-
-    CheckProduct.prototype.checkCucumber = function () {
         switch (document.orderDetail.trayName.selectedIndex) {
             case 1:
             case 2:
                 // 台木選択の制御
+                document.orderDetail.selectGraft.options[1].selected = true;
                 document.orderDetail.selectGraft.options[1].disabled = false;
                 document.orderDetail.selectGraft.options[2].disabled = true;
                 document.orderDetail.selectGraft.options[3].disabled = true;
@@ -107,19 +72,40 @@ var CheckProduct = function() {
                 document.orderDetail.howToGrow.options[2].disabled = true;
                 break;
             case 3:
-            case 4:
                 // 台木選択の制御
                 document.orderDetail.selectGraft.options[1].disabled = true;
                 document.orderDetail.selectGraft.options[2].disabled = true;
-                document.orderDetail.selectGraft.options[3].disabled = false;
-                document.orderDetail.selectGraft.options[4].disabled = true;
+                document.orderDetail.selectGraft.options[3].disabled = true;
+                document.orderDetail.selectGraft.options[4].disabled = false;
                 document.orderDetail.selectGraft.options[5].disabled = true;
+                document.orderDetail.selectGraft.options[4].selected = true;
                 // 育苗方法の制御
                 document.orderDetail.howToGrow.options[1].disabled = true;
                 document.orderDetail.howToGrow.options[2].disabled = false;
                 document.orderDetail.howToGrow.options[2].selected = true;
                 break;
+            case 4:
+                // 台木選択の制御
+                document.orderDetail.selectGraft.options[1].disabled = true;
+                document.orderDetail.selectGraft.options[2].disabled = true;
+                document.orderDetail.selectGraft.options[3].disabled = true;
+                document.orderDetail.selectGraft.options[4].disabled = true;
+                document.orderDetail.selectGraft.options[5].disabled = false;
+                document.orderDetail.selectGraft.options[5].selected = true;
+                // 育苗方法の制御
+                document.orderDetail.howToGrow.options[1].disabled = true;
+                document.orderDetail.howToGrow.options[2].disabled = false;
+                document.orderDetail.howToGrow.options[2].selected = true;
+                break;
+
         }
+
+        checkInput();
+        DaysIncrease();
+        DayController();
+    };
+
+    CheckProduct.prototype.checkCucumber = function () {
 
         switch (document.orderDetail.howToGrow.selectedIndex) {
             case 1:
@@ -141,6 +127,51 @@ var CheckProduct = function() {
                 break;
         }
 
+        switch (document.orderDetail.trayName.selectedIndex) {
+            case 1:
+            case 2:
+                // 台木選択の制御
+                document.orderDetail.selectGraft.options[1].disabled = false;
+                document.orderDetail.selectGraft.options[2].disabled = true;
+                document.orderDetail.selectGraft.options[3].disabled = true;
+                document.orderDetail.selectGraft.options[4].disabled = true;
+                document.orderDetail.selectGraft.options[5].disabled = true;
+                document.orderDetail.selectGraft.options[1].selected = true;
+                // 育苗方法の制御
+                document.orderDetail.howToGrow.options[1].disabled = false;
+                document.orderDetail.howToGrow.options[1].selected = true;
+                document.orderDetail.howToGrow.options[2].disabled = true;
+                break;
+            case 3:
+                // 台木選択の制御
+                document.orderDetail.selectGraft.options[1].disabled = true;
+                document.orderDetail.selectGraft.options[2].disabled = false;
+                document.orderDetail.selectGraft.options[3].disabled = true;
+                document.orderDetail.selectGraft.options[4].disabled = true;
+                document.orderDetail.selectGraft.options[5].disabled = true;
+                document.orderDetail.selectGraft.options[2].selected = true;
+                // 育苗方法の制御
+                document.orderDetail.howToGrow.options[1].disabled = true;
+                document.orderDetail.howToGrow.options[2].disabled = false;
+                document.orderDetail.howToGrow.options[2].selected = true;
+                break;
+            case 4:
+                // 台木選択の制御
+                document.orderDetail.selectGraft.options[1].disabled = true;
+                document.orderDetail.selectGraft.options[2].disabled = true;
+                document.orderDetail.selectGraft.options[3].disabled = false;
+                document.orderDetail.selectGraft.options[4].disabled = true;
+                document.orderDetail.selectGraft.options[5].disabled = true;
+                document.orderDetail.selectGraft.options[3].selected = true;
+                // 育苗方法の制御
+                document.orderDetail.howToGrow.options[1].disabled = true;
+                document.orderDetail.howToGrow.options[2].disabled = false;
+                document.orderDetail.howToGrow.options[2].selected = true;
+                break;
+        }
+
+
+
         checkInput();
         DaysIncrease();
         DayController();
@@ -157,7 +188,6 @@ hover = Boolean(false);
 
 // フォームの中身のチェック
 var checkInput = function () {
-
     var trayName = document.orderDetail.trayName.selectedIndex;
     var howToGrow = document.orderDetail.howToGrow.selectedIndex;
     var selectGraft = document.orderDetail.selectGraft.selectedIndex;
@@ -167,7 +197,7 @@ var checkInput = function () {
     var date = document.getElementById("date");
 
     if (trayName === 0 || howToGrow === 0 || selectGraft === 0 ||
-        p_num.value === "" || date.value === "") {
+        p_num.value === "" || p_num.value < 1 || date.value === "") {
 
         hover = false;
         button.style.color = '#ccc';
@@ -179,6 +209,13 @@ var checkInput = function () {
     } else {
         hover = true;
         submitMouseout();
+    }
+
+    var err = document.getElementById("err");
+    if (p_num.value > 10000) {
+        err.innerHTML = "苗数量は10000以内にしてください";
+    } else {
+        err.innerHTML = "";
     }
 
     if (trayName === 3 || trayName === 4) {
@@ -202,7 +239,40 @@ var checkInput = function () {
         graftForm.style.color = 'black';
         graftForm.style.boxShadow = 'none';
     }
+    getPrice();
+};
 
+// 合計代金取得
+var getPrice = function () {
+    var productName = document.getElementById("productName").innerHTML;
+    var tray = document.orderDetail.trayName.selectedIndex;
+    var num = document.getElementById("p_num");
+    var graft = document.orderDetail.selectGraft.selectedIndex;
+    var price = document.getElementById("price");
+    var hidden_price = document.getElementById("hidden_price");
+    var total_price = 0;
+    switch (productName) {
+        case "レタス":
+            if (tray === 1) total_price = 4;
+            if (tray === 2) total_price = 6;
+            total_price = total_price * num.value;
+            break;
+        case "とまと":
+            if (tray === 1) total_price = 6;
+            if (tray === 2) total_price = 8;
+            if (tray === 3) total_price = 15;
+            if (tray === 4) total_price = 17;
+            total_price = total_price * num.value;
+            break;
+        case "きゅうり":
+            if (tray === 1) total_price = 7;
+            if (tray === 2) total_price = 9;
+            if (tray === 3) total_price = 14;
+            if (tray === 4) total_price = 16;
+            total_price = total_price * num.value;
+    }
+    price.value = "¥" + Number(total_price).toLocaleString();
+    hidden_price.value = total_price;
 };
 
 // 決定ボタンのホバー効果
@@ -237,7 +307,6 @@ var setDateForm = function (dayToRaise) {
     date.value = [now.getFullYear(), ( "0"+(now.getMonth() + 1) ).slice(-2),
         ( "0"+(now.getDate()) ).slice(-2)].join('-');
     date.setAttribute("min", date.value);
-    console.log(date.value);
     checkInput();
 };
 
@@ -303,7 +372,7 @@ var DayController = function () {
             }
             setDateForm(dayToRaise);
             break;
-        case "トマト":
+        case "とまと":
             if (getDateNow() > 3 && getDateNow() < 9) {
                 dayToRaise = 34 + DaysIncrease();
             } else {

@@ -51,7 +51,7 @@ main {
 .details {
     width: 70%;
     float: right;
-    padding: 2% 0;
+    padding-top: 10px;
 }
 .details h3 {
     color: #95989A;
@@ -73,4 +73,16 @@ main {
 }
 #center {
     text-align: center;
+}
+.clearfix {
+    *zoom: 1;
+}
+.clearfix:before,
+.clearfix:after {
+    display: table;
+    content: "";
+    line-height: 0;
+}
+.clearfix:after {
+    clear: both;
 }

@@ -24,8 +24,9 @@ main img {
     position: relative;
     margin-top: 45px;
 }
-.colum h2 {
+.colum label {
     display: inline;
+    font-size: 2em;
 }
 .colum h3 {
     margin: 0;
